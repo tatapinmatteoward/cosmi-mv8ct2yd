@@ -1,0 +1,76 @@
+---
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/the-bear-truth', label: 'The Bear Truth' },
+  { href: '/evil-teddy-bear-manifesto', label: 'Evil Teddy Bear Manifesto' },
+  { href: '/neon-nightmare', label: 'Neon Nightmare' },
+  { href: '/bear-borne-horrors', label: 'Bear-Borne Horrors' },
+  { href: '/interactive-monster-gallery', label: 'Interactive Monster Gallery' }
+];
+---
+
+<nav class="bg-black border-b-2 border-cyan-400">
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex justify-between items-center">
+      <a href="/" class="text-2xl md:text-3xl font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-cyan-400">
+        Cosmic Teddy Catastrophe
+      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex gap-6">
+        {navItems.map((item) => (
+          <a 
+            href={item.href} 
+            class="text-lg font-bold tracking-wider hover:text-cyan-400 transition-all duration-300 hover:glow"
+            style="text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-cyan-400 hover:text-purple-500">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 flex flex-col gap-4 pb-4">
+      {navItems.map((item) => (
+        <a 
+          href={item.href} 
+          class="text-lg font-bold tracking-wider hover:text-cyan-400 transition-all duration-300 hover:glow py-2 px-4 rounded-md hover:bg-gray-900"
+          style="text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<!-- Client-side JavaScript for mobile toggle -->
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  button?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>
+
+<style>
+  .glow {
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7), 0 0 12px rgba(138, 43, 226, 0.8);
+    animation: glitch 1s infinite;
+  }
+  
+  @keyframes glitch {
+    0% { text-shadow: 0 0 8px rgba(0, 255, 255, 0.7), 0 0 12px rgba(138, 43, 226, 0.8); }
+    20% { text-shadow: 2px 2px 0px rgba(138, 43, 226, 0.8), -2px -2px 0px rgba(0, 255, 255, 0.7); }
+    40% { text-shadow: -2px 2px 0px rgba(0, 255, 255, 0.7), 2px -2px 0px rgba(138, 43, 226, 0.8); }
+    60% { text-shadow: 2px -2px 0px rgba(138, 43, 226, 0.8), -2px 2px 0px rgba(0, 255, 255, 0.7); }
+    80% { text-shadow: -2px -2px 0px rgba(0, 255, 255, 0.7), 2px 2px 0px rgba(138, 43, 226, 0.8); }
+    100% { text-shadow: 0 0 8px rgba(0, 255, 255, 0.7), 0 0 12px rgba(138, 43, 226, 0.8); }
+  }
+</style>

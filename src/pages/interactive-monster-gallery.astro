@@ -1,0 +1,226 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const featuredMonsters = [
+  {
+    id: 1,
+    name: "Shadow Stitch",
+    description: "A patchwork beast with threads of void. Hover for stitching animations that unravel reality.",
+    color: "from-purple-900 to-indigo-900",
+    border: "border-purple-500",
+    glow: "shadow-lg shadow-purple-500/50"
+  },
+  {
+    id: 2,
+    name: "Neon Nomad",
+    description: "A rogue wanderer of digital nightmares, its eyes pulse with neon energy.",
+    color: "from-cyan-900 to-blue-900",
+    border: "border-cyan-400",
+    glow: "shadow-lg shadow-cyan-400/50"
+  },
+  {
+    id: 3,
+    name: "Glitch Goliath",
+    description: "A towering monstrosity with corrupted pixels forming its grotesque features.",
+    color: "from-pink-900 to-red-900",
+    border: "border-pink-400",
+    glow: "shadow-lg shadow-pink-400/50"
+  },
+  {
+    id: 4,
+    name: "Void Weaver",
+    description: "Crafts nightmares from the fabric of space-time with its shadowy tendrils.",
+    color: "from-gray-900 to-black",
+    border: "border-gray-400",
+    glow: "shadow-lg shadow-gray-400/50"
+  },
+  {
+    id: 5,
+    name: "Fractal Frenzy",
+    description: "A swirling mass of chaotic geometry that shifts and morphs in real-time.",
+    color: "from-green-900 to-teal-900",
+    border: "border-green-400",
+    glow: "shadow-lg shadow-green-400/50"
+  },
+  {
+    id: 6,
+    name: "Pixel Predator",
+    description: "A terrifyingly precise hunter made of corrupted screen data.",
+    color: "from-yellow-900 to-amber-900",
+    border: "border-yellow-400",
+    glow: "shadow-lg shadow-yellow-400/50"
+  }
+];
+
+const interactions = [
+  {
+    icon: "fas fa-mouse-pointer",
+    title: "Hover to Unleash",
+    description: "Mouse over a teddy to trigger neon glows, eerie sound bites, and hidden lore pop-ups."
+  },
+  {
+    icon: "fas fa-mouse",
+    title: "Click for Chaos",
+    description: "Tap to animate – watch seams split, eyes glow red, and shadows warp in real-time."
+  },
+  {
+    icon: "fas fa-mobile-alt",
+    title: "Glitch Mode",
+    description: "Enable full-screen terror for immersive AR previews on mobile devices."
+  }
+];
+---
+
+<Layout title="Interactive Monster Gallery: Neon Cursed Teddies" description="Dive into the glitchy abyss of Cosmic Teddy Catastrophe's monster gallery. Interact with cursed teddy bears glowing in cyberpunk neon, unleashing digital terror one hover at a time.">
+  <div class="min-h-screen bg-black text-white">
+    {/* Hero Section */}
+    <div class="relative py-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-black z-0"></div>
+      <div class="absolute inset-0 z-10">
+        <div class="absolute top-10 left-10 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-48 h-48 bg-cyan-400 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative z-20 text-center">
+        <div class="mb-4 inline-block px-4 py-1 bg-purple-900/50 border border-purple-500 rounded-full">
+          <span class="text-cyan-400 font-bold tracking-wider">NEON NIGHTMARE</span>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400">
+          Interactive Monster Gallery
+        </h1>
+        <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 font-light">
+          <span class="text-cyan-300">Unleashing Neon Terror from the Shadows of Cursed Teddy Bears</span>
+        </p>
+        <div class="flex justify-center space-x-4">
+          <div class="w-3 h-3 bg-purple-500 rounded-full animate-pulse"></div>
+          <div class="w-3 h-3 bg-cyan-400 rounded-full animate-pulse delay-100"></div>
+          <div class="w-3 h-3 bg-pink-500 rounded-full animate-pulse delay-200"></div>
+        </div>
+      </div>
+    </div>
+
+    {/* Intro Section */}
+    <section class="py-16 px-4 relative">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300">
+            Welcome to the Neon Nightmare
+          </h2>
+          <p class="text-lg md:text-xl mb-10 leading-relaxed">
+            Where adorable teddies twist into cosmic horrors under flickering cyberpunk lights. 
+            In <span class="font-bold text-cyan-400">Cosmic Teddy Catastrophe</span>, explore our interactive gallery of cursed companions. 
+            Each monster pulses with glitchy energy, ready to haunt your screen.
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            {interactions.map((interaction, index) => (
+              <div 
+                class="bg-gray-900/70 backdrop-blur-sm border border-gray-800 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2"
+                key={index}
+              >
+                <div class="text-4xl mb-4 flex justify-center">
+                  <i class={`${interaction.icon} text-cyan-400`}></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2 text-purple-300">{interaction.title}</h3>
+                <p class="text-gray-300">{interaction.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* Monster Gallery */}
+    <section class="py-16 px-4 relative">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-purple-900/10 to-black"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative z-10">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-cyan-300">
+          Featured Fanged Friends
+        </h2>
+        <p class="text-center text-gray-400 mb-12">Hover and click to unleash their digital terror</p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredMonsters.map((monster) => (
+            <div 
+              class={`${monster.color} rounded-2xl border ${monster.border} p-6 relative overflow-hidden transition-all duration-500 transform hover:scale-105 group`}
+              key={monster.id}
+            >
+              <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent z-0"></div>
+              
+              <div class="relative z-10">
+                <div class="flex justify-between items-start mb-4">
+                  <h3 class="text-2xl font-bold text-white">{monster.name}</h3>
+                  <div class="w-8 h-8 rounded-full bg-cyan-400/20 border border-cyan-400 flex items-center justify-center">
+                    <span class="text-cyan-400 text-sm font-bold">{monster.id}</span>
+                  </div>
+                </div>
+                
+                <div class={`${monster.glow} rounded-lg p-4 mb-4 transition-all duration-300 group-hover:scale-110`}>
+                  <div class="bg-gray-900 rounded-lg h-48 flex items-center justify-center">
+                    <div class="text-center">
+                      <div class="inline-block p-4 bg-gray-800 rounded-full mb-2">
+                        <i class="fas fa-ghost text-4xl text-cyan-400"></i>
+                      </div>
+                      <p class="text-gray-300 text-sm">MONSTER PREVIEW</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <p class="text-gray-200 mb-4">{monster.description}</p>
+                
+                <button class="w-full py-3 bg-gray-800/50 border border-cyan-400 rounded-lg text-cyan-400 font-bold hover:bg-cyan-400/20 transition-colors duration-300">
+                  <i class="fas fa-play mr-2"></i> Activate Monster
+                </button>
+              </div>
+              
+              {/* Glitch effect overlay */}
+              <div class="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Footer Section */}
+    <footer class="py-16 px-4 relative border-t border-gray-900">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-500 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="mb-8">
+          <h3 class="text-2xl font-bold mb-4 text-purple-300">Cosmic Teddy Catastrophe</h3>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Dive deep into the glitchy abyss and witness the terrifying transformation of beloved teddy bears into digital nightmares.
+          </p>
+        </div>
+        
+        <div class="flex justify-center space-x-6 mb-8">
+          <a href="#" class="w-12 h-12 rounded-full bg-gray-900 border border-purple-500 flex items-center justify-center hover:bg-purple-500 transition-colors duration-300">
+            <i class="fab fa-twitter text-cyan-400"></i>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-full bg-gray-900 border border-cyan-400 flex items-center justify-center hover:bg-cyan-400 transition-colors duration-300">
+            <i class="fab fa-discord text-purple-400"></i>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-full bg-gray-900 border border-pink-500 flex items-center justify-center hover:bg-pink-500 transition-colors duration-300">
+            <i class="fab fa-github text-cyan-400"></i>
+          </a>
+        </div>
+        
+        <div class="text-gray-500 text-sm">
+          <p>© {new Date().getFullYear()} Cosmic Teddy Catastrophe. All rights reserved.</p>
+          <p class="mt-2">The Neon Nightmare Continues...</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Layout>

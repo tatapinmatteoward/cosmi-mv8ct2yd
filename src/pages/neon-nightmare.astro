@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const features = [
+  {
+    icon: 'fas fa-eye',
+    title: 'Glitching Eyes',
+    description: 'Button eyes glow with malevolent code and flicker between states'
+  },
+  {
+    icon: 'fas fa-bolt',
+    title: 'Static Whispers',
+    description: 'Fragmented memories that drive victims mad with cosmic horror'
+  },
+  {
+    icon: 'fas fa-fist-raised',
+    title: 'Digital Claws',
+    description: 'Paws that tear through firewalls and flesh alike'
+  },
+  {
+    icon: 'fas fa-infinity',
+    title: 'Eternal Loops',
+    description: 'Soul traps in looping digital purgatories'
+  }
+];
+
+const galleryItems = [
+  { id: 1, title: 'Corrupted Toy' },
+  { id: 2, title: 'Neon Arcade' },
+  { id: 3, title: 'Digital Wound' },
+  { id: 4, title: 'Glitch Horror' },
+  { id: 5, title: 'Cybernetic Paws' },
+  { id: 6, title: 'Pulsing Code' }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Nightmare | Cosmic Teddy Catastrophe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+    
+    @keyframes scanline {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100%; }
+    }
+    
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.8;
+      }
+    }
+    
+    .glitch-text {
+      animation: glitch 1.5s infinite;
+    }
+    
+    .scanline {
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      background-size: 100% 4px;
+      animation: scanline 8s linear infinite;
+    }
+    
+    .neon-border {
+      box-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #00ffff;
+    }
+    
+    .neon-text {
+      text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #00ffff;
+    }
+    
+    .glitch-effect {
+      position: relative;
+    }
+    
+    .glitch-effect::before,
+    .glitch-effect::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .glitch-effect::before {
+      left: 2px;
+      text-shadow: -2px 0 #ff00c1;
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+    
+    .glitch-effect::after {
+      left: -2px;
+      text-shadow: -2px 2px #00fff9;
+      clip: rect(44px, 450px, 56px, 0);
+      animation: glitch-anim2 5s infinite linear alternate-reverse;
+    }
+    
+    @keyframes glitch-anim {
+      0% { clip: rect(42px, 9999px, 44px, 0); }
+      5% { clip: rect(12px, 9999px, 59px, 0); }
+      10% { clip: rect(48px, 9999px, 29px, 0); }
+      15% { clip: rect(42px, 9999px, 73px, 0); }
+      20% { clip: rect(63px, 9999px, 27px, 0); }
+      25% { clip: rect(34px, 9999px, 55px, 0); }
+      30% { clip: rect(86px, 9999px, 73px, 0); }
+      35% { clip: rect(20px, 9999px, 20px, 0); }
+      40% { clip: rect(26px, 9999px, 60px, 0); }
+      45% { clip: rect(25px, 9999px, 25px, 0); }
+      50% { clip: rect(72px, 9999px, 65px, 0); }
+      55% { clip: rect(12px, 9999px, 23px, 0); }
+      60% { clip: rect(65px, 9999px, 72px, 0); }
+      65% { clip: rect(56px, 9999px, 68px, 0); }
+      70% { clip: rect(65px, 9999px, 56px, 0); }
+      75% { clip: rect(26px, 9999px, 24px, 0); }
+      80% { clip: rect(42px, 9999px, 48px, 0); }
+      85% { clip: rect(18px, 9999px, 51px, 0); }
+      90% { clip: rect(79px, 9999px, 13px, 0); }
+      95% { clip: rect(14px, 9999px, 40px, 0); }
+      100% { clip: rect(57px, 9999px, 58px, 0); }
+    }
+    
+    @keyframes glitch-anim2 {
+      0% { clip: rect(65px, 9999px, 100px, 0); }
+      5% { clip: rect(20px, 9999px, 20px, 0); }
+      10% { clip: rect(14px, 9999px, 67px, 0); }
+      15% { clip: rect(30px, 9999px, 46px, 0); }
+      20% { clip: rect(32px, 9999px, 32px, 0); }
+      25% { clip: rect(13px, 9999px, 56px, 0); }
+      30% { clip: rect(26px, 9999px, 61px, 0); }
+      35% { clip: rect(25px, 9999px, 21px, 0); }
+      40% { clip: rect(57px, 9999px, 44px, 0); }
+      45% { clip: rect(24px, 9999px, 32px, 0); }
+      50% { clip: rect(60px, 9999px, 100px, 0); }
+      55% { clip: rect(80px, 9999px, 70px, 0); }
+      60% { clip: rect(64px, 9999px, 22px, 0); }
+      65% { clip: rect(12px, 9999px, 39px, 0); }
+      70% { clip: rect(84px, 9999px, 55px, 0); }
+      75% { clip: rect(91px, 9999px, 22px, 0); }
+      80% { clip: rect(47px, 9999px, 35px, 0); }
+      85% { clip: rect(20px, 9999px, 54px, 0); }
+      90% { clip: rect(35px, 9999px, 21px, 0); }
+      95% { clip: rect(38px, 9999px, 59px, 0); }
+      100% { clip: rect(15px, 9999px, 62px, 0); }
+    }
+  </style>
+</head>
+<body class="bg-black text-white">
+  <Layout title="Neon Nightmare" description="Plunge into a cyberpunk abyss where cursed teddy bears awaken in flickering neon lights, unleashing glitchy horrors on the unsuspecting.">
+    
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-purple-900/30 to-black"></div>
+      <div class="relative container mx-auto px-4 flex flex-col items-center text-center z-10">
+        <div class="glitch-effect neon-text" data-text="NEON NIGHTMARE">
+          <h1 class="text-5xl md:text-7xl font-bold mb-4 tracking-wider glitch-text">NEON NIGHTMARE</h1>
+        </div>
+        <div class="w-16 h-1 bg-gradient-to-r from-purple-600 to-cyan-400 mx-auto mb-8"></div>
+        <p class="text-xl md:text-2xl max-w-3xl font-light mb-10 text-cyan-300">
+          Unleashing Neon Terror from the Shadows of Cursed Teddy Bears
+        </p>
+        <div class="flex space-x-4">
+          <button class="px-6 py-3 bg-purple-900/50 border border-cyan-400 text-cyan-300 hover:bg-cyan-400/20 transition-all duration-300 rounded-lg font-semibold">
+            Enter the Glitch
+          </button>
+          <button class="px-6 py-3 bg-transparent border-2 border-purple-600 text-purple-300 hover:bg-purple-600/20 transition-all duration-300 rounded-lg font-semibold">
+            Cursed Collection
+          </button>
+        </div>
+      </div>
+      <div class="absolute bottom-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-16 bg-gradient-to-r from-purple-900/20 to-black">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="scanline p-8 rounded-xl border border-purple-800 bg-black/30">
+            <div class="text-cyan-300 mb-4 flex items-center">
+              <i class="fas fa-exclamation-triangle mr-2"></i>
+              <span class="font-bold">COSMIC TEDDY CATS</span>
+            </div>
+            <h2 class="text-3xl font-bold mb-4 neon-text">Welcome to the flickering underbelly of Cosmic Teddy Catastrophe</h2>
+            <p class="text-gray-300 mb-4">
+              In this neon-soaked realm, the line between cute and catastrophic blurs into a 
+              <span class="text-cyan-400">glitchy nightmare</span>. Cursed teddy bears, infused with cosmic malice, 
+              emerge from the shadows of abandoned arcades and throbbing megacities, their button eyes glowing 
+              with malevolent code.
+            </p>
+            <p class="text-gray-300">
+              Imagine the hum of faulty holograms as a plush predator pounces, its fur fluffing with 
+              digital static and its eyes blinking with corrupted neural patterns.
+            </p>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 bg-gradient-to-r from-purple-700/20 to-cyan-500/20 rounded-xl blur-xl"></div>
+            <div class="relative bg-gradient-to-br from-purple-900/30 to-black border border-purple-700 p-8 rounded-xl">
+              <div class="bg-gradient-to-r from-purple-900/70 to-black/70 border border-purple-700 rounded-lg p-6">
+                <h3 class="text-xl font-bold mb-4 text-cyan-300 flex items-center">
+                  <i class="fas fa-cube mr-2"></i>
+                  THE CURSE AWAKENS
+                </h3>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <span class="text-cyan-400 mr-2">•</span>
+                    <span><span class="font-semibold">Whispering static</span> that drives victims mad with fragmented memories.</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-cyan-400 mr-2">•</span>
+                    <span><span class="font-semibold">Clawed paws</span> that tear through firewalls and flesh alike.</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-cyan-400 mr-2">•</span>
+                    <span><span class="font-semibold">Eternal glitches</span> trapping souls in looping digital purgatories.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-gradient-to-b from-black to-purple-900/20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">MONSTROSITIES OF THE NEON ABYSS</h2>
+          <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-cyan-400 mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div key={index} class="bg-gradient-to-br from-purple-900/30 to-black border border-purple-800 rounded-xl p-6 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl">
+              <div class="text-4xl text-cyan-400 mb-4">
+                <i class={feature.icon}></i>
+              </div>
+              <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+              <p class="text-gray-300">{feature.description}</p>
+              <div class="mt-4 w-full h-1 bg-gradient-to-r from-purple-600 to-cyan-400 rounded-full"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 bg-gradient-to-b from-purple-900/10 to-black">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4">GLITCHED VISUALS</h2>
+          <p class="text-cyan-300 max-w-2xl mx-auto">A visual journey through the corrupted cyberpunk nightmare</p>
+          <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-cyan-400 mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {galleryItems.map((item, index) => (
+            <div key={index} class="relative group overflow-hidden rounded-lg border border-purple-800 hover:border-cyan-400 transition-all duration-300">
+              <div class="bg-gradient-to-br from-purple-900/50 to-black h-40 flex items-center justify-center">
+                <div class="text-center p-4">
+                  <div class="text-3xl text-cyan-400 mb-2">
+                    <i class="fas fa-cube"></i>
+                  </div>
+                  <div class="text-sm font-medium">{item.title}</div>
+                </div>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                <div class="text-cyan-300 text-sm">{item.title}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-purple-900/30 to-black border-t border-purple-900">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-6">ENTER THE GLITCH</h2>
+        <p class="text-xl max-w-3xl mx-auto mb-10 text-gray-300">
+          Step into the neon-soaked abyss where cursed teddy bears reign supreme. 
+          Your sanity is the only currency you'll pay.
+        </p>
+        <button class="px-8 py-4 bg-gradient-to-r from-purple-700 to-cyan-500 text-black font-bold rounded-full hover:from-cyan-500 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
+          DOWNLOAD THE CURSE
+        </button>
+      </div>
+    </section>
+  </Layout>
+</body>
+</html>
